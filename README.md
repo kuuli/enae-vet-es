@@ -55,9 +55,10 @@ Documentation in `docs/` is the single source of truth for business rules, sched
 | Document | Contents | When to use it |
 |----------|----------|----------------|
 | **`docs/pre-operative-considerations.md`** | Clinic profile (preventive care, sterilisation, vaccinations, no routine consultations or emergencies), pre-surgery instructions (fasting, transport, consent, pick-up times), and post-op care. Language: Spanish. | Understanding clinic scope, pre-op and post-op instructions, and client-facing messaging (e.g. RAG or confirmation text). |
-| **Business rules / scheduling** | When present in `docs/` (e.g. `business-rules.md`), quota rules, service times, dog limit, drop-off windows, and communication protocol. | Implementing or verifying booking logic, capacity checks, and messaging rules. |
+| **`docs/event-storming-workflow.md`** | Event Storming workflow: user identification, pet onboarding, species-specific rules (cat/dog), “Tetris” scheduling (240 min, dog limit), date selection, extras, confirmation, and instructions. Includes Mermaid diagram. | Reference for the full booking flow and business rules from the Event Storming session. |
+| **Business rules / scheduling** | Quota (240 min), dog limit, service times, drop-off windows, and communication protocol. Currently defined in `event-storming-workflow.md`; a dedicated `business-rules.md` may be added later. | Implementing or verifying booking logic, capacity checks, and messaging rules. |
 
-If you add new docs (e.g. `business-rules.md`, `considerations.md`), add a row here and keep the README consistent with them.
+If you add new docs (e.g. `business-rules.md`), add a row here and keep the README consistent with them.
 
 ---
 
