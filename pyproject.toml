@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "enae-vet-es"
+version = "0.1.0"
+description = "Veterinary clinic chatbot backend (ENAE case study)"
+readme = "README.md"
+authors = []
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = ">=0.115.0,<1"
+uvicorn = { extras = ["standard"], version = ">=0.32.0,<1" }
+langchain-core = ">=0.3.0,<0.4"
+langchain-openai = ">=0.2.0,<0.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0.0,<9"
+httpx = ">=0.28.0,<1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
