@@ -56,6 +56,7 @@ Documentation in `docs/` is the single source of truth for business rules, sched
 |----------|----------|----------------|
 | **`docs/pre-operative-considerations.md`** | Clinic profile (preventive care, sterilisation, vaccinations, no routine consultations or emergencies), pre-surgery instructions (fasting, transport, consent, pick-up times), and post-op care. Language: Spanish. | Understanding clinic scope, pre-op and post-op instructions, and client-facing messaging (e.g. RAG or confirmation text). |
 | **Business rules / scheduling** | When present in `docs/` (e.g. `business-rules.md`), quota rules, service times, dog limit, drop-off windows, and communication protocol. | Implementing or verifying booking logic, capacity checks, and messaging rules. |
+| **`docs/jira/`** | Groomed Jira exports: enriched ticket specs and before/after examples (e.g. `VETES-14-enriched.md`). | Tracing backlog decisions and onboarding to the **enrich** workflow. |
 
 If you add new docs (e.g. `business-rules.md`, `considerations.md`), add a row here and keep the README consistent with them.
 
@@ -76,3 +77,5 @@ When you change business rules or scheduling logic in `docs/`, update this READM
 ## Cursor workflows
 
 - **Implement a Jira ticket**: Say *"Implement PROJ-123"* (or *@implement-jira-workflow implement PROJ-123*). The agent will read the ticket, plan from AC, ask questions if needed, develop using the **backend-langchain-vet** subagent, move the ticket to In Progress, open a PR with an AC-based description, and move the ticket to In Review. Full steps: [.cursor/commands/implement.md](.cursor/commands/implement.md).
+
+- **Enrich / groom a Jira ticket**: Say *"Enrich VETES-1"* or *"/enrich PROJ-123"*. The agent loads the issue, refines it in phases (diagnosis, structure, acceptance criteria, delivery readiness) using the **product-manager** agent and **product-manager-ticket-enrichment** skill, then consolidates an artifact; publishing back to Jira requires your explicit approval. Example output: [`docs/jira/VETES-14-before-after-example.md`](docs/jira/VETES-14-before-after-example.md). Full steps: [.cursor/commands/enrich.md](.cursor/commands/enrich.md).
