@@ -20,6 +20,40 @@ The bot does not diagnose or prescribe; it supports scheduling, FAQs, and intern
 
 ---
 
+## API (FastAPI)
+
+A minimal **placeholder** HTTP API lives in `main.py` ([VETES-16](https://kuuli.atlassian.net/browse/VETES-16)): two mock routes with **Pydantic** models and automatic **OpenAPI** documentation.
+
+1. **Create a virtual environment and install dependencies**
+
+   ```bash
+   python3 -m venv .venv
+   .venv/bin/pip install -r requirements.txt
+   ```
+
+   For running tests: `pip install -r requirements-dev.txt`.
+
+2. **Run the server with Uvicorn**
+
+   ```bash
+   .venv/bin/uvicorn main:app --reload --host 0.0.0.0 --port 8000
+   ```
+
+3. **Explore the API**
+
+   - OpenAPI **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)  
+   - **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)  
+   - **GET** `/health` — liveness-style JSON  
+   - **POST** `/api/v1/echo` — JSON body `{"text": "..."}` (placeholder echo)
+
+4. **Tests**
+
+   ```bash
+   .venv/bin/pytest
+   ```
+
+---
+
 ## Workflow
 
 The main flow from conversation to confirmed appointment is as follows.

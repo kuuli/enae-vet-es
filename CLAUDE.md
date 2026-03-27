@@ -38,6 +38,9 @@ These rules are defined in `docs/event-storming-workflow.md` and `docs/pre-opera
 ## Project Structure
 
 ```
+main.py                        # FastAPI placeholder API (health + mock echo; OpenAPI /docs)
+requirements.txt               # Pip runtime deps (FastAPI, Uvicorn, Pydantic)
+requirements-dev.txt         # Pip dev deps (pytest, httpx)
 docs/                          # Business rules and domain docs (source of truth)
   event-storming-workflow.md   # Full booking flow, capacity rules, Mermaid diagram
   pre-operative-considerations.md  # Pre-op/post-op instructions (Spanish)
